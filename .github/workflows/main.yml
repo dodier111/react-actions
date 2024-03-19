@@ -24,4 +24,4 @@ jobs:
     - name: Install pm2
       run: npm install pm2 -g
     - name: Start React app with pm2
-      run: pm2 start App.js
+      run: /usr/local/bin/pm2 start /react-actions/src/App.js
