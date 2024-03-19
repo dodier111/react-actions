@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
@@ -21,7 +22,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - name: Install pm2
-      run: npm install pm2 -g
-    - name: Start React app with pm2
-      run: /usr/local/bin/pm2 start /react-actions/src/App.js
+    - run: npm run build --if-present
